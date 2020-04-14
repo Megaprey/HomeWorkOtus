@@ -1,3 +1,5 @@
+package ru.otus.homework;
+
 import com.google.common.collect.ArrayListMultimap;
 
 public class HelloOtus {

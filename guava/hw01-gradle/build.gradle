@@ -3,11 +3,11 @@ plugins {
     id 'idea'
 }
 
-group 'com.google.guava'
+group 'ru.otus'
 version '1.0'
 
-sourceCompatibility = JavaVersion.VERSION_1_10
-targetCompatibility = JavaVersion.VERSION_1_10
+sourceCompatibility = JavaVersion.VERSION_13
+targetCompatibility = JavaVersion.VERSION_13
 
 repositories {
     mavenCentral()
@@ -24,5 +24,5 @@ jar {
 }
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation ("com.google.guava:guava")
+    compile("com.google.guava:guava:${Versions.guava}")
 }

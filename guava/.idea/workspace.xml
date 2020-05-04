@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="903a11f3-403f-47b9-ae60-970a567c544e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/hw2-ArrayList/src/main/java/DIYarrayList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/java/Versions.java" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/java/Versions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hw01-gradle/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/hw01-gradle/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hw01-gradle/build/libs/hw01-gradle-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/hw01-gradle/build/libs/hw01-gradle-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2-ArrayList/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/hw2-ArrayList/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2-ArrayList/src/main/java/ru/otus/homework/DIYarrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/hw2-ArrayList/src/main/java/ru/otus/homework/DIYarrayList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,11 +81,11 @@
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587070728830" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../otus_examples" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-    <property name="settings.editor.splitter.proportion" value="0.25889328" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.splitter.proportion" value="0.24668705" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -113,7 +100,22 @@
       <recent name="C:\src\HomeWorkOtus\guava\buildSrc" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.guava [build]">
+  <component name="RunManager" selected="Application.DIYarrayList">
+    <configuration name="DIYarrayList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="13" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="ru.otus.homework.DIYarrayList" />
+      <module name="guava.hw2-ArrayList.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.otus.homework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="guava [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -190,32 +192,20 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="guava:hw01-gradle [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/hw01-gradle" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Application.DIYarrayList" />
+      <item itemvalue="Gradle.guava [build]" />
+      <item itemvalue="Gradle.guava [clean]" />
+      <item itemvalue="Gradle.guava:hw01-gradle [build]" />
+      <item itemvalue="Gradle.guava:hw01-gradle [buildDependents]" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DIYarrayList" />
         <item itemvalue="Gradle.guava [build]" />
         <item itemvalue="Gradle.guava [clean]" />
         <item itemvalue="Gradle.guava:hw01-gradle [buildDependents]" />
         <item itemvalue="Gradle.guava:hw01-gradle [build]" />
-        <item itemvalue="Gradle.guava:hw01-gradle [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -233,30 +223,69 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588527329156">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588527329156" />
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser" timestamp="1588534975564">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="728" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588534975564" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1587072938190">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587072938190" />
-    <state width="1877" height="316" key="GridCell.Tab.0.bottom" timestamp="1587074851849">
+    <state width="1860" height="289" key="GridCell.Tab.0.bottom" timestamp="1588600643553">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="316" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587074851849" />
-    <state width="1877" height="316" key="GridCell.Tab.0.center" timestamp="1587074851848">
+    <state width="1860" height="289" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588600643553" />
+    <state width="1860" height="289" key="GridCell.Tab.0.center" timestamp="1588600643552">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="316" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587074851848" />
-    <state width="1877" height="316" key="GridCell.Tab.0.left" timestamp="1587074851848">
+    <state width="1860" height="289" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588600643552" />
+    <state width="1860" height="289" key="GridCell.Tab.0.left" timestamp="1588600643552">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="316" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587074851848" />
-    <state width="1877" height="316" key="GridCell.Tab.0.right" timestamp="1587074851849">
+    <state width="1860" height="289" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588600643552" />
+    <state width="1860" height="289" key="GridCell.Tab.0.right" timestamp="1588600643552">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="316" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587074851849" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1587073192714">
+    <state width="1860" height="289" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588600643552" />
+    <state width="1860" height="346" key="GridCell.Tab.1.bottom" timestamp="1588594661615">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587073192714" />
+    <state width="1860" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588594661615" />
+    <state width="1860" height="346" key="GridCell.Tab.1.center" timestamp="1588594661615">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588594661615" />
+    <state width="1860" height="346" key="GridCell.Tab.1.left" timestamp="1588594661614">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588594661614" />
+    <state width="1860" height="346" key="GridCell.Tab.1.right" timestamp="1588594661615">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588594661615" />
+    <state x="438" y="189" width="1220" height="745" key="SettingsEditor" timestamp="1588527299992">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="438" y="189" width="1220" height="745" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588527299992" />
+    <state x="571" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1588527439511">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="571" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588527439511" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/hw2-ArrayList/src/main/java/ru/otus/homework/DIYarrayList.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="gradleExecuteTaskHistory">
     <option value="" />

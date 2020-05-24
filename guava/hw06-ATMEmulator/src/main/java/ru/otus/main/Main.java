@@ -1,7 +1,6 @@
 package ru.otus.main;
 
 import ru.otus.pojo.ATM;
-import ru.otus.pojo.FiftyBanknoteContainer;
 import ru.otus.pojo.TakeMoneyException;
 
 public class Main {

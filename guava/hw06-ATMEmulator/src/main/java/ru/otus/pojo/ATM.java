@@ -1,58 +1,47 @@
 package ru.otus.pojo;
 
-public class ATM {
-    private FiftyBanknoteContainer fiftyBanknoteContainer;
-    private OneHundredBanknoteContainer oneHundredBanknoteContainer;
-    private FiveHundredBanknoteContainer fiveHundredBanknoteContainer;
-    private OneThousandthBanknoteContainer oneThousandBanknoteContainer;
-    private FiveThousandBanknoteContainer fiveThousandBanknoteContainer;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class ATM implements ATMEmulator{
+
+    private Set<Container> containers;
 
     private int amount;
 
     public ATM(int fiftyBanknoteNumber, int oneHundredBanknoteNumber, int fiveHundredBunknoteNumber,
                int oneThousandBanknoteNumber, int fiveThousandBanknoteNumber){
-        fiftyBanknoteContainer = new FiftyBanknoteContainer(fiftyBanknoteNumber, this);
-        oneHundredBanknoteContainer = new OneHundredBanknoteContainer(oneHundredBanknoteNumber, this);
-        fiveHundredBanknoteContainer = new FiveHundredBanknoteContainer(fiveHundredBunknoteNumber, this);
-        oneThousandBanknoteContainer = new OneThousandthBanknoteContainer(oneThousandBanknoteNumber, this);
-        fiveThousandBanknoteContainer = new FiveThousandBanknoteContainer(fiveThousandBanknoteNumber, this);
+        containers = new TreeSet<>();
+        containers.add(new BanknoteContainer(fiftyBanknoteNumber, this, Denomination.FIFTY));
+        containers.add(new BanknoteContainer(oneHundredBanknoteNumber, this, Denomination.ONE_HUNDRED));
+        containers.add(new BanknoteContainer(fiveHundredBunknoteNumber, this, Denomination.FIVE_HUNDRED));
+        containers.add(new BanknoteContainer(oneThousandBanknoteNumber, this, Denomination.ONE_THOUSAND));
+        containers.add(new BanknoteContainer(fiveThousandBanknoteNumber, this, Denomination.FIVE_THOUSEND));
     }
 
     public void withdrawBalance(){
         System.out.println("Остаток в банкомате:");
-        System.out.println(fiveThousandBanknoteContainer);
-        System.out.println(oneThousandBanknoteContainer);
-        System.out.println(fiveHundredBanknoteContainer);
-        System.out.println(oneHundredBanknoteContainer);
-        System.out.println(fiftyBanknoteContainer);
+        containers.forEach(container -> System.out.println(container));
     }
 
     public void withdrawCash(int amount) throws TakeMoneyException {
         this.amount = amount;
-        int numberFiveThousand = takeMaxBanknoteFromAmount(fiveThousandBanknoteContainer);
-        int numberOneThousand = takeMaxBanknoteFromAmount(oneThousandBanknoteContainer);
-        int numberFiveHundred = takeMaxBanknoteFromAmount(fiveHundredBanknoteContainer);
-        int numberOneHundred = takeMaxBanknoteFromAmount(oneHundredBanknoteContainer);
-        int numberFifty = takeMaxBanknoteFromAmount(fiftyBanknoteContainer);
+        containers.forEach(container -> {
+            int numberBanknote = takeMaxBanknoteFromAmount(container);
+            System.out.println("Выплатили купюр номиналом в " + container.getDenominationName() +
+                    " равно " + numberBanknote);
+
+        });
+
         if (this.amount != 0) {
             throw new TakeMoneyException();
         }
-        System.out.println("Выплатили купюр номиналом в " + fiveThousandBanknoteContainer.denominationName +
-                " равно " + numberFiveThousand);
-        System.out.println("Выплатили купюр номиналом в " + oneThousandBanknoteContainer.denominationName +
-                " равно " + numberOneThousand);
-        System.out.println("Выплатили купюр номиналом в " + fiveHundredBanknoteContainer.denominationName +
-                " равно " + numberFiveHundred);
-        System.out.println("Выплатили купюр номиналом в " + oneHundredBanknoteContainer.denominationName +
-                " равно " + numberOneHundred);
-        System.out.println("Выплатили купюр номиналом в " + fiftyBanknoteContainer.denominationName +
-                " равно " + numberFifty);
     }
 
     private int takeMaxBanknoteFromAmount(Container container) {
         int numberBanknote = amount / container.getDenomination();
-        container.subtractBanknote(numberBanknote);
-        amount = amount - numberBanknote * container.getDenomination();
-        return numberBanknote;
+        int banknotes = container.subtractBanknote(numberBanknote);
+        amount = amount - banknotes * container.getDenomination();
+        return banknotes;
     }
 }

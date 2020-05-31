@@ -2,7 +2,6 @@ package ru.otus.pojo;
 
 public class BanknoteContainer implements Container, Comparable{
     int number = 0;
-    ATMEmulator aTM;
     Denomination denomination;
 
     public void addBanknote(int number){
@@ -25,9 +24,8 @@ public class BanknoteContainer implements Container, Comparable{
         return denomination.getDenominationName();
     }
 
-    public BanknoteContainer(int number, ATMEmulator aTM, Denomination denomination){
+    public BanknoteContainer(int number, Denomination denomination){
         this.number = number;
-        this.aTM = aTM;
         this.denomination = denomination;
     }
 

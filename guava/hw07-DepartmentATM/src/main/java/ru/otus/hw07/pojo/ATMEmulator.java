@@ -5,7 +5,7 @@ import java.util.TreeSet;
 
 public class ATMEmulator implements ATM {
     private ATM nextATM;
-    private Set<Container> containers = new TreeSet<>();;
+    private Set<Container> containers = new TreeSet<>();
 
     private int amount;
 

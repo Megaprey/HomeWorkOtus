@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class ATMState {
-    Set<Container> containers = new TreeSet<>();
+    private final Set<Container> containers = new TreeSet<>();
 
     public void setContainers(Set<Container> containers) {
         containers.forEach(container -> this.containers.add(container.copy()));

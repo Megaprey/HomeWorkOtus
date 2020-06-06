@@ -1,6 +1,6 @@
 package ru.otus.hw07.pojo;
 
-public class BanknoteContainer implements Container, Comparable, Cloneable{
+public class BanknoteContainer implements Container, Comparable{
     int number = 0;
     Denomination denomination;
 

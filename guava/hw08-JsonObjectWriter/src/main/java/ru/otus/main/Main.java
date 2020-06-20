@@ -21,10 +21,11 @@ public class Main {
         String[] clothes = new String[]{"short", "pants"};
         Person person = new Person(15, friendList, clothes, asdsad, ages, "PETRO");
         MyGson myGson = new MyGson();
-        myGson.toJson(person);
+        String myJson = myGson.toJson(person);
         Gson gson = new Gson();
-        String json = gson.toJson(person);
-        System.out.println("-------------------------------------------------------------");
-        System.out.println(json);
+
+        System.out.println(myJson);
+        Person person1 = gson.fromJson(myJson, Person.class);
+        System.out.println(person.equals(person1));
     }
 }

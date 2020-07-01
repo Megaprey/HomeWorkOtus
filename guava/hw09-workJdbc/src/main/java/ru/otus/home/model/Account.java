@@ -5,6 +5,16 @@ import ru.otus.jdbc.mapper.Id;
 public class Account {
     @Id
     private int id;
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", rest=" + rest +
+                '}';
+    }
+
     private String type;
     private int rest;
 

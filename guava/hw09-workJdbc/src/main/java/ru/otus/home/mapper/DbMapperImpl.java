@@ -4,6 +4,7 @@ package ru.otus.home.mapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.otus.h2.H2demo;
+import ru.otus.home.model.Account;
 import ru.otus.home.model.User;
 import ru.otus.jdbc.mapper.EntityClassMetaData;
 import ru.otus.jdbc.mapper.EntitySQLMetaData;
@@ -44,6 +45,24 @@ public class DbMapperImpl<T> implements JdbcMapper<T> {
             user.setName("Pavel");
             user.setAge(20);
             demo.insertOrUpdate(user);
+
+        } catch (Exception ex) {
+            logger.error("Error: " + ex);
+        }
+        DbMapperImpl<Account> demo2 = new DbMapperImpl<>();
+
+        try (var connection = getConnection()) {
+            demo2.setConnection(connection);
+            demo2.createTable("create table Account(id int, type varchar(50), rest int)");
+            Account acc = new Account();
+            acc.setId(0);
+            acc.setType("client");
+            acc.setRest(200);
+            demo2.insertOrUpdate(acc);
+            acc.setType("admin");
+            demo2.insertOrUpdate(acc);
+            Account acc2 = demo2.findById(0, (Class<Account>) acc.getClass());
+            System.out.println(acc2);
         } catch (Exception ex) {
             logger.error("Error: " + ex);
         }

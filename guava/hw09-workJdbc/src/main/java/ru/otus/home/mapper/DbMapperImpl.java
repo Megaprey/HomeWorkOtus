@@ -3,15 +3,13 @@ package ru.otus.home.mapper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.otus.h2.H2demo;
+import ru.otus.core.model.User;
 import ru.otus.home.model.Account;
-import ru.otus.home.model.User;
 import ru.otus.jdbc.mapper.EntityClassMetaData;
 import ru.otus.jdbc.mapper.EntitySQLMetaData;
 import ru.otus.jdbc.mapper.JdbcMapper;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.List;
 
@@ -20,6 +18,12 @@ public class DbMapperImpl<T> implements JdbcMapper<T> {
     private static final String URL = "jdbc:h2:mem:";
     private static final Logger logger = LoggerFactory.getLogger(DbMapperImpl.class);
     private Connection connection;
+
+    public int getRowIserted() {
+        return rowIserted;
+    }
+
+    private int rowIserted;
 //    public DbMapperImpl(EntitySQLMetaData constructor) throws SQLException {
 //        this.constructor = constructor;
 //    }
@@ -69,7 +73,7 @@ public class DbMapperImpl<T> implements JdbcMapper<T> {
 
     }
 
-    private void setConnection(Connection connection) {
+    public void setConnection(Connection connection) {
         this.connection = connection;
     }
 
@@ -77,14 +81,14 @@ public class DbMapperImpl<T> implements JdbcMapper<T> {
     public void insert(T objectData) throws IllegalAccessException {
         EntityClassMetaData<T> classMetaData = new ObjectDataExtractor<T>(objectData);
         EntitySQLMetaData constructor = new SQLContsructor(classMetaData);
-        insertOrUpdateFromQuery(constructor.getInsertSql(), "inserted", objectData, classMetaData);
+        rowIserted = insertOrUpdateFromQuery(constructor.getInsertSql(), "inserted", objectData, classMetaData);
     }
 
     @Override
     public void update(T objectData) throws IllegalAccessException {
         EntityClassMetaData<T> classMetaData = new ObjectDataExtractor<T>(objectData);
         EntitySQLMetaData constructor = new SQLContsructor(classMetaData);
-        insertOrUpdateFromQuery(constructor.getUpdateSql(), "updated", objectData, classMetaData);
+        rowIserted = insertOrUpdateFromQuery(constructor.getUpdateSql(), "updated", objectData, classMetaData);
     }
 
     @Override
@@ -161,14 +165,14 @@ public class DbMapperImpl<T> implements JdbcMapper<T> {
         }
     }
 
-    private void insertOrUpdateFromQuery(String query, String sqlOperatorName, T objData, EntityClassMetaData<T> objDataExtractor) {
+    private int insertOrUpdateFromQuery(String query, String sqlOperatorName, T objData, EntityClassMetaData<T> objDataExtractor) {
         List<Field> fields = null;
         if (sqlOperatorName.equals("updated")) {
             fields = objDataExtractor.getFieldsWithoutId();
         } else {
             fields = objDataExtractor.getAllFields();
         }
-        try (PreparedStatement pst = connection.prepareStatement(query)) {
+        try (PreparedStatement pst = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             Savepoint savePoint = connection.setSavepoint("savePointName");
             int i = 0;
             for (; i < fields.size(); i++) {
@@ -179,18 +183,17 @@ public class DbMapperImpl<T> implements JdbcMapper<T> {
                 objDataExtractor.getIdField().setAccessible(true);
                 pst.setInt(i + 1, (Integer) objDataExtractor.getIdField().get(objData));
             }
-            try {
-                int rowCount = pst.executeUpdate(); //Блокирующий вызов
-                connection.commit();
-                logger.info(sqlOperatorName + " rowCount: {}", rowCount);
-            } catch (SQLException ex) {
-                connection.rollback(savePoint);
-                logger.error(ex.getMessage(), ex);
+            int rowCount = pst.executeUpdate(); //Блокирующий вызов
+            connection.commit();
+            logger.info(sqlOperatorName + " rowCount: {}", rowCount);
+            try (ResultSet rs = pst.getGeneratedKeys()) {
+                rs.next();
+                return rs.getInt(1);
             }
         } catch (SQLException | IllegalAccessException throwables) {
             logger.error(throwables.getMessage(), throwables);
         }
-
+            return 0;
     }
 
 

@@ -21,19 +21,6 @@ public class MyGson {
         if(clazz.isAssignableFrom(String.class) || clazz.isAssignableFrom(Character.class)) {
             return APOSTROPHE + obj + APOSTROPHE;
         }
-//        if(clazz.isArray()) {
-//            int length = Array.getLength(obj);
-//            result = "[";
-//            for (int i = 0; i < length; i++) {
-//                if (i != 0){
-//                    result += ", ";
-//                }
-//                result += Array.get(obj, i);
-//            }
-//            result += "]";
-//            return result;
-//
-//        }
         if (clazz.isArray()) {
             return arrayToJson(obj);
         }

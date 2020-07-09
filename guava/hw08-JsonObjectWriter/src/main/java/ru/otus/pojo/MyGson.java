@@ -1,13 +1,12 @@
 package ru.otus.pojo;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Map;
 
 public class MyGson {
-    private final static String apostrophe = "\"";
+    private final static String APOSTROPHE = "\"";
     public String toJson(Object obj) throws IllegalAccessException {
         String result = "{";
         if (obj == null){
@@ -20,7 +19,7 @@ public class MyGson {
             return "" + obj;
         }
         if(clazz.isAssignableFrom(String.class) || clazz.isAssignableFrom(Character.class)) {
-            return apostrophe + obj + apostrophe;
+            return APOSTROPHE + obj + APOSTROPHE;
         }
 //        if(clazz.isArray()) {
 //            int length = Array.getLength(obj);
@@ -50,7 +49,7 @@ public class MyGson {
         Field[] fieldsPublic = clazz.getDeclaredFields();
         int countField = 0;
         for (Field field:fieldsPublic) {
-            result += apostrophe + field.getName() + apostrophe + ":" + toJson(field.get(obj));
+            result += APOSTROPHE + field.getName() + APOSTROPHE + ":" + toJson(field.get(obj));
 
             countField++;
             if (countField != fieldsPublic.length) {
@@ -68,9 +67,9 @@ public class MyGson {
         String arrayString = Arrays.deepToString(new Object[]{mass}).replace(" ", "").
                 replace("[[", "[").replace("]]", "]");
         if(clazz.componentType().isAssignableFrom(String.class)) {
-            arrayString = arrayString.replace("[", "[" + apostrophe).
-                    replace(",", apostrophe + "," + apostrophe).
-                    replace("]", apostrophe+ "]");
+            arrayString = arrayString.replace("[", "[" + APOSTROPHE).
+                    replace(",", APOSTROPHE + "," + APOSTROPHE).
+                    replace("]", APOSTROPHE + "]");
         }
 //            System.out.println("arrayString ====== " + arrayString);
         return arrayString;
@@ -82,7 +81,7 @@ public class MyGson {
         int count = 0;
         for (var element : mass) {
             if (element instanceof String){
-                result += apostrophe + element + apostrophe;
+                result += APOSTROPHE + element + APOSTROPHE;
             } else {
                 result += element;
             }
@@ -100,8 +99,8 @@ public class MyGson {
         Map<?, ?> map = (Map<?, ?>) obj;
         int count = 0;
         for (var element : map.entrySet()) {
-            result += apostrophe + element.getKey() + apostrophe + ":" + apostrophe
-                    + element.getValue() + apostrophe;
+            result += APOSTROPHE + element.getKey() + APOSTROPHE + ":" + APOSTROPHE
+                    + element.getValue() + APOSTROPHE;
             count++;
             if (count != map.size()) {
                 result += ",";

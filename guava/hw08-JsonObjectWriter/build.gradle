@@ -30,4 +30,15 @@ dependencies {
     // https://mvnrepository.com/artifact/com.google.code.gson/gson
     compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
 
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

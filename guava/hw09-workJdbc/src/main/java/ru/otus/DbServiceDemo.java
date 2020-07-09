@@ -22,37 +22,12 @@ public class DbServiceDemo {
     private static final Logger logger = LoggerFactory.getLogger(DbServiceDemo.class);
 
     public static void main(String[] args) throws SQLException {
-//        ExecutorDemo demo = new ExecutorDemo();
-//
-//        try (Connection connection = getConnection()) {
-//            demo.createTable(connection);
-//
-//            DbExecutorImpl<User> executor = new DbExecutorImpl<>();
-//            long userId = executor.executeInsert(connection, "insert into user(name) values (?)",
-//                    Collections.singletonList("testUserName"));
-//            logger.info("created user:{}", userId);
-//            connection.commit();
-//
-//            Optional<User> user = executor.executeSelect(connection, "select id, name from user where id  = ?",
-//                    userId, rs -> {
-//                        try {
-//                            if (rs.next()) {
-//                                return new User(rs.getLong("id"), rs.getString("name"));
-//                            }
-//                        } catch (SQLException e) {
-//                            logger.error(e.getMessage(), e);
-//                        }
-//                        return null;
-//                    });
-//            logger.info("user:{}", user);
-//------------------------------------------------------------------------------------------------------------------
         DataSourceH2 dataSource = new DataSourceH2();
         var sessionManager = new SessionManagerJdbc(dataSource);
         var demo = new DbServiceDemo();
         demo.createTable(dataSource);
         DbMapperImpl<User> mapperUser = new DbMapperImpl<>();
         UserDao userDao = new UserDaoMapper(sessionManager, mapperUser);
-
         var dbServiceUser = new DbServiceUserImpl(userDao);
         User user = new User();
         user.setAge(15);
@@ -64,7 +39,6 @@ public class DbServiceDemo {
                 crUser -> logger.info("created user, name:{}", crUser.getName()),
                 () -> logger.info("user was not created")
         );
-//        }
     }
 
     private void createTable(DataSource dataSource) throws SQLException {

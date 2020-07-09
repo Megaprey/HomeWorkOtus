@@ -24,9 +24,7 @@ public class DbMapperImpl<T> implements JdbcMapper<T> {
     }
 
     private int rowIserted;
-//    public DbMapperImpl(EntitySQLMetaData constructor) throws SQLException {
-//        this.constructor = constructor;
-//    }
+
     public static void main(String[] args) throws SQLException, IllegalAccessException {
         DbMapperImpl<User> demo = new DbMapperImpl<>();
         User user = new User();

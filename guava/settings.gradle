@@ -6,4 +6,5 @@ include 'hw06-ATMEmulator'
 include 'hw07-DepartmentATM'
 include 'hw08-JsonObjectWriter'
 include 'hw09-workJdbc'
+include 'hw12-WebServer'
 

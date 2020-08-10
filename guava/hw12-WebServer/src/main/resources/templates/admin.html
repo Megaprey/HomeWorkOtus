@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пользователи</title>
+    <style>
+        th, td, p, input, button{
+            font:14px Verdana;
+        }
+        table, th, td
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        th {
+            font-weight:bold;
+        }
+    </style>
+</head>
+<script>
+    function CreateTableFromJSON() {
+        var users = ${userList};
+
+        var col = [];
+        for (var i = 0; i < users.length; i++) {
+            for (var key in users[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        var table = document.createElement("table");
+
+        var tr = table.insertRow(-1);
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = 0; i < users.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = users[i][col[j]];
+            }
+        }
+
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+    </script>
+
+<body>
+<h4>Добавить пользователя</h4>
+<form action="users" method="post">
+    <input type="text" name = "fullName" value="Петров Пётр Петрович" placeholder="ФИО">
+    <input type="text" name = "login" value="Dikii" placeholder="Логин">
+    <input type="text" name = "password" value="3333" placeholder="Пароль">
+    <input type="text" name = "age" value="13" placeholder="Возраст">
+    <button type="submit">Добавить</button>
+</form>
+<pre id = "userDataContainer"></pre>
+
+<h4>Показать всех пользователей</h4>
+<input type="button" onclick="CreateTableFromJSON()" value="Показать" />
+<p id="showData"></p>
+
+</body>
+</html>
